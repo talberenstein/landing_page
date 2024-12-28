@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
 import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
+import { Button } from "@/components/ui/button";
 
 // Define props from Astro
 const {
@@ -63,7 +64,8 @@ interface Props {
     <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
     <div class="mt-7 grid w-full gap-3 sm:inline-flex">
       {primaryBtn && 
-      <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
+      // <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
+      <Button>{primaryBtn}</Button>
       }
       {secondaryBtn && 
       <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />

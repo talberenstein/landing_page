@@ -4,6 +4,8 @@ import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
@@ -24,6 +26,7 @@ export default defineConfig({
   prefetch: true,
   integrations: [
     tailwind(),
+    tailwind({ applyBaseStyles: false }),
     sitemap({
       i18n: {
         defaultLocale: "en", // All urls that don't contain `fr` after `https://screwfast.uk/` will be treated as default locale, i.e. `en`
@@ -92,7 +95,8 @@ export default defineConfig({
       components: {
         SiteTitle: "./src/components/ui/starlight/SiteTitle.astro",
         Head: "./src/components/ui/starlight/Head.astro",
-        MobileMenuFooter: "./src/components/ui/starlight/MobileMenuFooter.astro",
+        MobileMenuFooter:
+          "./src/components/ui/starlight/MobileMenuFooter.astro",
         ThemeSelect: "./src/components/ui/starlight/ThemeSelect.astro",
       },
       head: [
@@ -116,6 +120,7 @@ export default defineConfig({
       gzip: false,
       brotli: true,
     }),
+    react(),
   ],
   experimental: {
     clientPrerender: true,
